@@ -14,10 +14,10 @@ describe('Tests get correct data type', () => {
   it('GET /posts', (done) => {
     request.get('posts').end((err, res) => {
       for (let i = 0; i < res.body.length; i++) {
-        isInteger(res.body[i],'userId')
-        isInteger(res.body[i],'id')
-        isString(res.body[i],'title')
-        isString(res.body[i],'body')
+        isInteger(res.body[i],'userId') // user id must be integer
+        isInteger(res.body[i],'id') // id must be integer
+        isString(res.body[i],'title') // title must be string
+        isString(res.body[i],'body') // body must be string
       }
       done();
     });
@@ -35,7 +35,7 @@ describe('Correct post response', () => {
       // console.log(res.body)
       expect(res.body.title).to.equal('recommendation')//the title must have be equal to recommendation
       expect(res.body.body).to.equal('motorcycle')//the body must have be equal to motorcycle
-      expect(res.body.userId).to.equal(12)
+      expect(res.body.userId).to.equal(12)// the userId must have be equal 12
       done();
     });
   });
